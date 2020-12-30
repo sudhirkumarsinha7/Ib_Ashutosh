@@ -39,6 +39,7 @@ class Registration extends Component{
           labelStyle={{fontSize: 20, color: '#3366ff',marginRight:10}}
           labelWrapStyle={{}}
         />
+        <Text>Hello</Text>
       </View>
         );
     }
