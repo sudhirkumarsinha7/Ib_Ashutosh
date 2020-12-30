@@ -75,7 +75,7 @@ class LogIn extends Component {
                      alert('successfully cleared filed');
                   }}
                      
-                      title="cancel" 
+                      title="cancel"  
                  
                     />
                  </View>           
