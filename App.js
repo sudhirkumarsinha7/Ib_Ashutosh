@@ -20,8 +20,9 @@ class App extends Component {
       <View style={styles.container}>
         {/* <StringManipulation /> */}
 
-        <Text>{JSON.stringify(data)}</Text> 
-           { console.log(data)}
+        {/* <Text>{JSON.stringify(data)}</Text> 
+           { console.log(data)} */}
+           <Root/>
       </View>
     );
   }

@@ -8,6 +8,8 @@ target 'reactDemo' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+  pod 'RCT3DModel', :path => '../node_modules/react-native-3d-model-view'
+
   target 'reactDemoTests' do
     inherit! :complete
     # Pods for testing

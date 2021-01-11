@@ -20,6 +20,7 @@
     "native-base": "^2.15.0",
     "react": "16.13.1",
     "react-native": "0.63.4",
+    "react-native-3d-model-view": "^1.2.0",
     "react-native-calendar-picker": "^7.0.7",
     "react-native-check-box": "^2.1.7",
     "react-native-dropdown-picker": "^3.7.6",
