@@ -14,9 +14,9 @@ class Favorites1 extends Component {
             this.props.navigation.navigate('Favorites2');
           }}></Button>
         <Button
-          title="Favorites3"
+          title="MyProfile"
           onPress={() => {
-            this.props.navigation.navigate('Favorites3');
+            this.props.navigation.navigate('MyProfile');
           }}></Button>
         <Button
           title="Favorites4"

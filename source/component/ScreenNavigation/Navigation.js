@@ -14,8 +14,13 @@ const Tab = createBottomTabNavigator();
 
 MyTabs = () => {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={RouteFavorites} />
+       <Tab.Navigator 
+       tabBarOptions={{
+           labelStyle: {
+           fontSize: 15,
+         },}}
+    >
+      <Tab.Screen name="Home" component={RouteFavorites} options={{fontSize:30 }}/>
       <Tab.Screen name="Settings" component={RouteIb} />
       <Tab.Screen name="Disply" component={RouteMain} />
       <Tab.Screen name="Holiday" component={RouteNotify} />
