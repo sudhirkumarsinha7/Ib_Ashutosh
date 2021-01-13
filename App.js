@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 // import Registration from './source/component/register';
 import LogIn from './source/component/login';
-//import Registration from './source/component/register'
-import Test from './source/component/test1';
+import Registration from './source/component/register'
 import Route from './source/component/Screen/Root';
 // import FavoriteRoute from './source/component/ScreenNavigation/Favorites/RouteFavorites';
 //import IbRoute from './source/component/ScreenNavigation/Ib/RouteIb';

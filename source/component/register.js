@@ -89,13 +89,17 @@ class Registration extends Component {
     );
   }
 
+
+  cricketChecked = (id) => {
+    this.setState((prevState) => ({cricket: !prevState.cricket}));
+  };
+
+  badmintonCheck = (id) => {
+    this.setState((prevState) => ({badminton: !prevState.badminton}));
+  };
+
+
   render() {
-    
-          // this.state = {
-          //   //  cricket:false,
-          //   //  badminton:false,
-          //    country : 'India',
-          //   }
     return (
       <>
         <ScrollView>
@@ -112,19 +116,19 @@ class Registration extends Component {
             </Text>
           </View>
 
-          {/* <View>
+          <View>
                        <Text style={styles.text}>UserName:</Text>
                        <TextInput style={styles.textbox}
                         onChangeText={(text) => this.setState({UserName:text})}
                          value={this.state.UserName}
                        /> 
                   
-                     </View> */}
+                     </View>
           {/* {this.formInput('Username')}
           {this.formInput('Password')}
           {this.formInput('MobieleNum')} */}
 
-          <FormInput
+          {/* <FormInput
             fieldName={'Username'}
             onChangeText={(UserName) => {
               this.setState({UserName});
@@ -144,16 +148,16 @@ class Registration extends Component {
               this.setState({MobileNo});
             }}
             value={this.state.MobileNo}
-          />
-          {this.renderButton(
+          /> */}
+          {/* {this.renderButton(
             'Password',
             (Password) => {
               this.setState({Password});
             },
             this.state.Password,
-          )}
+          )} */}
 
-          {/* <View>
+          <View>
                          <Text style={styles.text}>Password:</Text>
                          <TextInput style={styles.textbox}
                          onChangeText={(text) => this.setState({Password:text})}
@@ -167,9 +171,9 @@ class Registration extends Component {
                           onChangeText={(text)=>this.setState({MobileNo:text})}
                           value={this.state.Password}
                          />
-                     </View> */}
+                     </View>
 
-          <View>{/* {this.show()} */}</View>
+          <View>{this.show()}</View>
 
           <View>
             <Text style={{fontSize: 20, marginLeft: 20, marginTop: 20}}>
@@ -211,20 +215,28 @@ class Registration extends Component {
           </View>
 
           <View style={styles.container1}> 
+            <View>
             <Checkbox
-              
-              value = { this.state.cricket }
-             // label="cricket"
-              onChange = {this.cricketChecked} 
+              value={this.state.cricket}
+              onChange={this.cricketChecked}
+              style={{marginTop: -130, marginLeft: 1}}
             />
-          </View> 
+            <Text style={{marginTop: -30 , marginLeft: 30, fontSize: 20}}>
+              {' '}
+              Developer
+            </Text>
+          </View>
 
-            <View >
+          <View style={styles.container2}>
             <Checkbox
-              //label="Badminton"
               value={this.state.badminton}
               onChange={this.badmintonCheck}
+              style={{marginTop: -230, marginLeft: -75}}
             />
+            <Text style={{marginTop: -30, marginLeft: -35, fontSize: 20}}>
+              Tester
+            </Text>
+          </View>
           </View> 
 
           <View style={styles.button1}>
@@ -322,18 +334,21 @@ const styles = StyleSheet.create({
     marginTop: -28,
     marginLeft: 90,
     marginRight: 250,
+    borderRadius:50,
   },
 
   button1: {
-    marginTop: 30,
+    marginTop: -70,
     marginLeft: 30,
     marginRight: 250,
+    borderRadius:50
   },
 
   button2: {
     marginTop: -35,
     marginLeft: 240,
     marginRight: 30,
+    borderRadius:50
   },
 });
 

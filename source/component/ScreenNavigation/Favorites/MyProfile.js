@@ -1,7 +1,17 @@
+/**
+ * /**
+ * MyProfile.js
+ * @author: Ashutosh kumar
+ * Created On: 12 january, 2021.
+ * Mainly used for Profile picture add and update. 
+
+ */
 import React, {Component} from 'react';
 import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
 import {CustomTextView} from '../../../utilities/common';
 import Modal from 'react-native-modal';
+
+
 class MyProfile extends Component {
   constructor(props) {
     super(props);
@@ -59,7 +69,7 @@ class MyProfile extends Component {
               onPress={() =>
                 this.setState({isPhotoUpload: !this.state.isPhotoUpload})
               }>
-              <Text>From Gallery</Text>
+              <Text>QR Scanner</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.button2}
