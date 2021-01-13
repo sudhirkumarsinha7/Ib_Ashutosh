@@ -5,13 +5,13 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Favorites1 from './Favorites1';
 import Favorites2 from './Favorites2';
 import MyProfile from './MyProfile';
-import Favorites4 from './Favorites4';
+import QrScanner from './QrScanner';
 
 const StackFavorites = createStackNavigator();
 class RouteFavorites extends Component {
   render() {
     return (
-      //<NavigationContainer>
+      
       <StackFavorites.Navigator>
         <StackFavorites.Screen
           name="Favorites1"
@@ -23,10 +23,10 @@ class RouteFavorites extends Component {
           name="MyProfile"
           component={MyProfile}></StackFavorites.Screen>
         <StackFavorites.Screen
-          name="Favorites4"
-          component={Favorites4}></StackFavorites.Screen>
+          name="QrScanner"
+          component={QrScanner}></StackFavorites.Screen>
       </StackFavorites.Navigator>
-      //</NavigationContainer>
+      
     );
   }
 }

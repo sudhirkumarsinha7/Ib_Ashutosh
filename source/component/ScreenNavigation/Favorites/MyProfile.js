@@ -17,6 +17,7 @@ class MyProfile extends Component {
     super(props);
     this.state = {
       isPhotoUpload: false,
+      
     };
   }
   render() {
@@ -59,7 +60,7 @@ class MyProfile extends Component {
             leftText={'Email'}
             rightText={'ashutosh.choudhary@ideabytes.com '}
           />
-          <CustomTextView leftText={'Mobile'} rightText={'9570684028'} />
+          <CustomTextView leftext={'Mobile'} rightText={'9570684028'} />
         </View>
         <Modal isVisible={this.state.isPhotoUpload}>
           <View style={{flex: 1, backgroundColor: 'white', maxHeight: 200}}>

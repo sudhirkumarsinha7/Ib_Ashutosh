@@ -19,9 +19,9 @@ class Favorites1 extends Component {
             this.props.navigation.navigate('MyProfile');
           }}></Button>
         <Button
-          title="Favorites4"
+          title="QrScanner"
           onPress={() => {
-            this.props.navigation.navigate('Favorites4');
+            this.props.navigation.navigate('QrScanner');
           }}></Button>
       </View>
     );

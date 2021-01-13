@@ -1,36 +1,9 @@
-import React, {Component} from 'react';
-import {View, StyleSheet, TouchableOpacity,Text, Dimensions} from 'react-native';
-import {Button, Icon} from 'native-base';
+import React,{Component} from 'react';
+import {View, StyleSheet, TouchableOpacity, Dimensions} from 'react-native';
+import {Button, Icon, Text} from 'native-base';
 import QRCodeScanner from 'react-native-qrcode-scanner';
-const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
-class CustomTextView extends Component {
-  render() {
-    const {leftText, rightText} = this.props;
-    return (
-    
-        <View style={{flexDirection: 'row', }}>
-          <Text
-            style={{
-              fontSize: 16,
-              fontFamily: 'Roboto-Regular',
-              color: 'blue',
-              width: '27%',
-            }}>
-            {leftText}
-          </Text>
-          <Text
-            style={{
-              fontSize: 16,
-              fontFamily: 'Roboto-Regular',
-              color: '#000000',
-            }}>
-            {rightText}
-          </Text>
-        </View>
-    );
-  }
-}
 
+const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
 
 class BarCodeScanner extends Component {
   constructor(props) {
@@ -110,6 +83,9 @@ class BarCodeScanner extends Component {
     );
   }
 }
+
+export {BarCodeScanner};
+
 const styles = StyleSheet.create({
   center: {
     justifyContent: 'center',
@@ -123,6 +99,3 @@ const styles = StyleSheet.create({
     fontSize: 22,
   },
 });
-
-
-export {CustomTextView,BarCodeScanner};
