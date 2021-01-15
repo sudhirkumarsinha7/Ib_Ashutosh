@@ -1,18 +1,13 @@
 import React, {Component} from 'react';
-import {View, Text, TouchableOpacity, Button,Alert} from 'react-native';
-import {TextInput} from 'react-native-gesture-handler';
-import QRCodeScanner from 'react-native-qrcode-scanner';
-import { RNCamera,FaceDetector } from 'react-native-camera';
+import {View, Text, TouchableOpacity, Button, Alert} from 'react-native';
+import {RNCamera, FaceDetector} from 'react-native-camera';
 import Modal from 'react-native-modal';
 import {BarCodeScanner} from '../../../utilities/BarCodeScanner';
-import {
-    Icon,
-  } from 'native-base';
+import {Icon} from 'native-base';
 class QrScanner extends Component {
-   
-   constructor(props) {
+  constructor(props) {
     super(props);
-    this.onClearClicked = this.onClearClicked.bind(this);
+    // this.onClearClicked = this.onClearClicked.bind(this);
     this.updateState = this.updateState.bind(this);
     this.onSuccessScan = this.onSuccessScan.bind(this);
     this.troubleShootCamera = this.troubleShootCamera.bind(this);
@@ -21,18 +16,11 @@ class QrScanner extends Component {
     this.state = {
       scanCode: '',
       isTextVisibility: false,
-      isScannerPress:false,
+      isScannerPress: false,
       shouldDisplayCamera: false,
     };
   }
 
-  onClearClicked() {
-    this.setState({
-      name: '',
-      id: '',
-      location: {},
-    });
-  }
   updateState(key, value) {
     this.setState({[key]: value});
   }
@@ -81,90 +69,53 @@ class QrScanner extends Component {
   render() {
     var {shouldDisplayCamera, qrcode} = this.state;
     return (
-      //style={{flex:1,flexDirection:'row',alignItems:'center',justifyContent:'center',marginTop:30}}  style={{flex:0.5,borderWidth:1}}
-    //   <View>
-    //     <View>
-    //       <Text
-    //         style={{
-    //           backgroundColor: 'green',
-    //           textAlign: 'center',
-    //           width: '100%',
-    //           height: 30,
-    //           fontSize: 20,
-    //         }}>
-    //         Qr Code Scanner screen
-    //       </Text>
-    //     </View>
-    //     <View>
-    //       <Text style={{fontSize: 20, marginTop: 20,}}>
-    //         Code
-    //       </Text>
-    //       <TextInput
-    //         style={{
-    //           borderWidth: 1,
-    //           borderRadius: 10,
-    //           width: 120,
-    //           height: 40,
-    //           marginTop: -27,
-    //           marginLeft: 65,
-    //         }}
-    //         onChangeText={(text) => this.setState({scanCode: text})}
-    //         value={this.state.scanCode}></TextInput>
-    //     </View>
-    //     <View>
-    //       <TouchableOpacity
-    //         style={{
-    //           marginLeft: 280,
-    //           borderRadius: 20,
-    //           backgroundColor: 'blue',
-    //           marginRight: 20,
-    //           marginTop: -35,
-
-    //         }}
-    //         onPress={() =>
-    //             this.setState({isScannerPress: !this.state.isScannerPress})
-    //           }>
-    //         <Text style={{padding: 10, textAlign: 'center'}}>Camera</Text>
-    //       </TouchableOpacity>
-    //     </View>
-    //     <Modal isVisible={this.state.isScannerPress}
-    //     style={{flex: 1, backgroundColor: 'white', maxHeight: 200}}>
-    //       <View >
-           
-    //           <Text>Camera</Text>
-    //       </View>
-    //     </Modal>
-    //     <View>
-    //       <TouchableOpacity
-    //         style={{marginTop: 40, alignItems: 'center'}}
-    //         onPress={this.ClickScanValue}>
-    //         <Text>QR-CODE</Text>
-    //       </TouchableOpacity>
-    //       {this.state.isTextVisibility ? (
-    //         <Text>{this.state.scanCode}</Text>
-    //       ) : null}
-    //     </View>
-    //   </View>
-
-
-
-
-
-   // //////////////
-
-   <View>
-        <TouchableOpacity onPress={() => this.onClickCameraToScanCode()}>
+      <View >
+        <View style={{backgroundColor: 'white'}}>
+          <Text
+            style={{
+              padding: 10,
+              fontWeight: 'bold',
+              fontSize: 15,
+              textAlign: 'justify',
+              color: '#333333',
+            }}>
+            A QR code (abbreviated from Quick Response code) is a type of matrix
+            barcode, first designed in 1994 for the automotive industry in
+            Japan. A barcode is a machine-readable optical label that contains
+            information about the item to which it is attached. A QR code uses
+            four standardised encoding modes to store data efficiently. The
+            Quick Response system became popular outside the automotive industry
+            due to its fast readability and greater storage capacity compared to
+            standard UPC barcodes . Applications include product tracking, item
+            identification, time tracking, document management, and general
+            marketing. A QR code consists of black squares arranged in a square
+            grid on a white background, which can be read by an imaging device
+            such as a camera, and processed using Reed-Solomon error
+            correction until the image can be appropriately interpreted. The
+            required data is then extracted from patterns that are present in
+            both horizontal and vertical components of the image. The standard
+            gained even more traction during the COVID-19 pandemic. The
+            worldwide momentum for adoption of paperless menus and other forms
+            of public communications (such as museum guides) has led to a wider
+            adoption of QR codes in public spaces. New services emerge to store
+            files as QR codes as the demand grows.During the month of June 2011,
+            14 million American mobile users scanned a QR code or a barcode.
+            Some 58% of those users scanned a QR or barcode from their homes,
+            while 39% scanned from retail stores; 53% of the 14 million users
+            were men between the ages of 18 and 34.QR code usage decreased to
+            9.76 million in 2018 but is expected to grow to a total of 11
+            million households by the end of 2020.
+          </Text>
+        </View>
+        <TouchableOpacity 
+        style={{borderRadius:30,width:145,backgroundColor:'#008CBA',padding:10,marginLeft:140,marginTop:10}}
+        onPress={() => this.onClickCameraToScanCode()}>
           <View>
-            <View>
-              <Text> Scan QR / Barcode</Text>
-            </View>
-            <View>
-              <Icon name="camera" style={{color: 'grey'}} />
-            </View>
+            <Text> Scan QR / Barcode</Text>
           </View>
         </TouchableOpacity>
         {shouldDisplayCamera && (
-          <Modal  
+          <Modal
             animationType="slide"
             transparent={false}
             visible={shouldDisplayCamera} // todo: useless prop: remove after checking
@@ -185,9 +136,6 @@ class QrScanner extends Component {
         )}
         {qrcode && <Text>{'QRcode   ' + this.state.qrcode}</Text>}
       </View>
- 
-
-
     );
   }
 }

@@ -55,7 +55,7 @@ class BarCodeScanner extends Component {
         topContent={
           <View
             style={{...styles.directionRow, ...styles.center, borderWidth: 1}}>
-            <Button
+            <Button 
               style={{flex: 1}}
               transparent
               onPress={() =>
@@ -63,11 +63,11 @@ class BarCodeScanner extends Component {
               }>
               <Icon name="arrow-back" style={{color: 'black'}} />
             </Button>
-            <Text style={{...styles.topTextStyles}}>QR / Barcode Scanner</Text>
+            <Text style={styles.topTextStyles}>QR / Barcode Scanner</Text>
           </View>
         }
-        bottomContent={
-          <View style={{...styles.padding5, ...styles.directionRow}}>
+        bottomContent={ 
+          <View style={styles.padding5, styles.directionRow}>
             <Text style={{color: 'grey'}}>Trouble Scanning the code? </Text>
             <TouchableOpacity
               transparent
