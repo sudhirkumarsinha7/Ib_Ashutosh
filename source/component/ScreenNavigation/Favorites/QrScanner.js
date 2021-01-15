@@ -4,6 +4,17 @@ import {RNCamera, FaceDetector} from 'react-native-camera';
 import Modal from 'react-native-modal';
 import {BarCodeScanner} from '../../../utilities/BarCodeScanner';
 import {Icon} from 'native-base';
+
+/*  
+     This is parent class for Bar code scanner
+     in this class i am importing Barcode scanner 
+    * QrScanner.js
+    * @author: Ashutosh kumar
+    * Created On: 15 january, 2021.
+    * Mainly used for Bar code and Qr code scanning 
+
+
+*/
 class QrScanner extends Component {
   constructor(props) {
     super(props);
