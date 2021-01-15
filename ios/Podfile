@@ -16,6 +16,10 @@ target 'reactDemo' do
   ]
   permissions_path = '../node_modules/react-native-permissions/ios'
   pod 'Permission-Camera', :path => "../node_modules/react-native-permissions/ios/Camera/Permission-Camera.podspec"
+  rn_maps_path = '../node_modules/react-native-maps'
+  pod 'react-native-google-maps', :path => rn_maps_path
+  pod 'GoogleMaps'
+  pod 'Google-Maps-iOS-Utils'
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])
