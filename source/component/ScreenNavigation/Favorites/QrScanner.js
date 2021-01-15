@@ -4,6 +4,7 @@ import {RNCamera, FaceDetector} from 'react-native-camera';
 import Modal from 'react-native-modal';
 import {BarCodeScanner} from '../../../utilities/BarCodeScanner';
 import {Icon} from 'native-base';
+import { ScrollView } from 'react-native-gesture-handler';
 
 /*  
      This is parent class for Bar code scanner
@@ -80,6 +81,7 @@ class QrScanner extends Component {
   render() {
     var {shouldDisplayCamera, qrcode} = this.state;
     return (
+      <ScrollView>
       <View >
         <View style={{backgroundColor: 'white'}}>
           <Text
@@ -119,7 +121,7 @@ class QrScanner extends Component {
           </Text>
         </View>
         <TouchableOpacity 
-        style={{borderRadius:30,width:145,backgroundColor:'#008CBA',padding:10,marginLeft:140,marginTop:10}}
+        style={{borderRadius:30,width:145,backgroundColor:'#008CBA',padding:10,marginLeft:120,marginTop:10}}
         onPress={() => this.onClickCameraToScanCode()}>
           <View>
             <Text> Scan QR / Barcode</Text>
@@ -147,6 +149,7 @@ class QrScanner extends Component {
         )}
         {qrcode && <Text>{'QRcode   ' + this.state.qrcode}</Text>}
       </View>
+      </ScrollView>
     );
   }
 }
