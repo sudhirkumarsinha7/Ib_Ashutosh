@@ -3,12 +3,12 @@ import React, {Component} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Favorites1 from './Favorites1';
-import Favorites2 from './Favorites2';
+import DataHandling from './DataHandling';
 import MyProfile from './MyProfile';
 import QrScanner from './QrScanner';
 
 const StackFavorites = createStackNavigator();
-class RouteFavorites extends Component {
+class RouteHome extends Component {
   render() {
     return (
       
@@ -17,8 +17,8 @@ class RouteFavorites extends Component {
           name="Favorites1"
           component={Favorites1}></StackFavorites.Screen>
         <StackFavorites.Screen
-          name="Favorites2"
-          component={Favorites2}></StackFavorites.Screen>
+          name="DataHandling"
+          component={DataHandling}></StackFavorites.Screen>
         <StackFavorites.Screen
           name="MyProfile"
           component={MyProfile}></StackFavorites.Screen>
@@ -26,9 +26,11 @@ class RouteFavorites extends Component {
           name="QrScanner"
           component={QrScanner}></StackFavorites.Screen>
       </StackFavorites.Navigator>
+
+      
       
     );
   }
 }
 
-export default RouteFavorites;
+export default RouteHome;

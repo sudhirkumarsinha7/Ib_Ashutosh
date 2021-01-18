@@ -15,6 +15,7 @@ import {
   TextInput,
   StatusBar,
   Button,
+  TouchableOpacity,
 } from 'react-native';
 import {
   Header,
@@ -34,48 +35,71 @@ class LogIn extends Component {
     return (
       <>
         <StatusBar barStyle="dark-content" />
-        <SafeAreaView>
           <ScrollView>
-            <View>
-              <Text
-                style={{
-                  marginLeft: 50,
-                  padding: 10,
-                  fontSize: 25,
-                  color: 'green',
-                }}>
-                Welcome to Login Page
-              </Text>
-            </View>
+             <View style={{flex:6}}>
+                    <View style={{backgroundColor: '#48D1CC',flex:1,}}>
+                          <Text
+                                style={{
+                                fontSize: 25,
+                                color: '#FFEBCD',
+                                textAlign:'center',
+                                }}>
+                               Welcome to Login Page
+                          </Text>
+                    </View>
 
-            <View style={styles.body}>
-              <Text style={styles.text}> Uname:</Text>
-              <TextInput
-                style={styles.textbox}
-                onChangeText={(text) => this.setState({Uname: text})}
-                value={this.state.Uname}
-              />
-
-              <Text style={styles.password}> Password:</Text>
+                    <View style={{flex:1}}></View>
+                    <View style={{flex:1,flexDirection:'row'}}>
+                        <View style={{flex:0.4,padding:20,}}>   
+                            <Text style={{fontSize:20,fontWeight:'bold'}}> Uname:</Text>
+                        </View> 
+                        <View style={{flax:0.6,padding:20,flaxDirection:'row',}}>   
+                              <TextInput
+                                    style={{borderWidth:1,borderRadius:30,width:150,marginTop:15}}
+                                    onChangeText={(text) => this.setState({Uname: text})}
+                                    value={this.state.Uname}
+                              />
+                        </View> 
+                     </View>
+              {/* <Text style={styles.password}> Password:</Text>
               <TextInput
                 style={styles.passwordField}
                 onChangeText={(text) => this.setState({Password: text})}
                 value={this.state.Password}
-              />
-            </View>
-            <View style={styles.button}>
-              <Button
-                onPress={() => {
+              /> */}
+            
+            <View>
+              <TouchableOpacity
+                style={{
+                  borderRadius: 30,
+                  backgroundColor: 'green',
+                  width: 120,
+                  padding: 20,
+                  marginLeft: 30,
+                  marginTop: 90,
+                  height: 40,
+                }}
+                onPress={() =>
                   alert(
                     'UserName :' +
                       this.state.Uname +
                       '\n' +
                       'Password:' +
                       this.state.Password,
-                  );
-                }}
-                title="login"
-              />
+                  )
+                }>
+                <View>
+                  <Text
+                    style={{
+                      textAlign: 'center',
+                      fontWeight: 'bold',
+                      marginTop: -10,
+                    }}>
+                    {' '}
+                    LogIn
+                  </Text>
+                </View>
+              </TouchableOpacity>
             </View>
 
             <View style={styles.button1}>
@@ -87,8 +111,8 @@ class LogIn extends Component {
                 title="cancel"
               />
             </View>
+            </View>
           </ScrollView>
-        </SafeAreaView>
       </>
     );
   }
@@ -109,42 +133,51 @@ const styles = StyleSheet.create({
   password: {
     marginTop: 30,
     fontWeight: 'bold',
+    marginLeft: 20,
     fontSize: 25,
+    color: '#0000CD',
   },
   button: {
-    marginTop: 30,
+    marginTop: 100,
     marginLeft: 30,
     marginRight: 250,
+    backgroundColor: 'green',
   },
 
   button1: {
     marginTop: -35,
     marginLeft: 240,
     marginRight: 30,
+    borderRadius: 30,
   },
 
   textbox: {
     // backgroundColor: Colors.white,
     height: 40,
-    width: 250,
+    width: 200,
     marginTop: -28,
     marginLeft: 150,
     borderColor: 'grey',
     borderWidth: 2,
+    borderRadius: 20,
+    borderColor: '#98FB98',
     //textAlign:'center',
   },
   passwordField: {
     height: 40,
-    width: 250,
-    marginTop: -25,
+    width: 200,
+    marginTop: -33,
     marginLeft: 150,
     borderColor: 'grey',
     borderWidth: 2,
+    borderRadius: 20,
     textAlign: 'left',
+    borderColor: '#98FB98',
   },
   text: {
-    color: Colors.blue,
+    color: '#0000CD',
     fontSize: 25,
+    marginLeft: 20,
     fontWeight: 'bold',
   },
   sectionContainer: {

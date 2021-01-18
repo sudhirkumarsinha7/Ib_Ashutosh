@@ -39,11 +39,12 @@ class Registration extends Component {
       UserName: '',
       Password: '',
       MobileNo: '',
-      sex: '',
+      Sex: '',
        // check:false,
-        cricket: false ,
-        badminton: false ,
+       developer: false ,
+       tester: false ,
         country : 'India',
+        hobby:'',
     };
   }
 
@@ -66,9 +67,9 @@ class Registration extends Component {
             initial={0}
             formHorizontal={true}
             onPress={(value) => {
-              this.setState({value: value});
+              this.setState({Sex: value});
             }}
-            labelStyle={{fontSize: 20, color: '#3366ff', marginRight: 10}}
+            labelStyle={{fontSize: 15, color: '#3366ff', marginRight: 10}}
             labelWrapStyle={{}}
           />
         
@@ -76,26 +77,26 @@ class Registration extends Component {
     );
   };
 
-  renderButton(fieldName, onChangeText, value) {
-    return (
-      <View>
-        <Text style={styles.text}>{fieldName}</Text>
-        <TextInput
-          style={styles.textbox}
-          onChangeText={onChangeText}
-          value={value}
-        />
-      </View>
-    );
-  }
+  // renderButton(fieldName, onChangeText, value) {
+  //   return (
+  //     <View>
+  //       <Text style={styles.text}>{fieldName}</Text>
+  //       <TextInput
+  //         style={styles.textbox}
+  //         onChangeText={onChangeText}
+  //         value={value}
+  //       />
+  //     </View>
+  //   );
+  // }
 
 
-  cricketChecked = (id) => {
-    this.setState((prevState) => ({cricket: !prevState.cricket}));
+  developerChecked = (id) => {
+    this.setState((prevState) => ({developer: !prevState.developer}));
   };
 
-  badmintonCheck = (id) => {
-    this.setState((prevState) => ({badminton: !prevState.badminton}));
+  testerCheck = (id) => {
+    this.setState((prevState) => ({tester: !prevState.tester}));
   };
 
 
@@ -110,9 +111,10 @@ class Registration extends Component {
                 fontSize: 23,
                 fontWeight: 'bold',
                 marginTop: 30,
+                color:'blue'
               }}>
               {' '}
-              Welcome to Registeration Page{' '}
+              Welcome to Registration Page{' '}
             </Text>
           </View>
 
@@ -169,7 +171,7 @@ class Registration extends Component {
                          <Text style={styles.text}>MobileNo:</Text>
                          <TextInput style={styles.textbox}
                           onChangeText={(text)=>this.setState({MobileNo:text})}
-                          value={this.state.Password}
+                          value={this.state.MobileNo}
                          />
                      </View>
 
@@ -191,7 +193,7 @@ class Registration extends Component {
               defaultValue={this.state.country}
               containerStyle={{
                 height: 35,
-                width: 250,
+                width: 180,
                 marginLeft: 120,
                 marginTop: -25,
               }}
@@ -217,8 +219,8 @@ class Registration extends Component {
           <View style={styles.container1}> 
             <View>
             <Checkbox
-              value={this.state.cricket}
-              onChange={this.cricketChecked}
+              value={this.state.developer}
+              onChange={this.developerChecked}
               style={{marginTop: -130, marginLeft: 1}}
             />
             <Text style={{marginTop: -30 , marginLeft: 30, fontSize: 20}}>
@@ -229,8 +231,8 @@ class Registration extends Component {
 
           <View style={styles.container2}>
             <Checkbox
-              value={this.state.badminton}
-              onChange={this.badmintonCheck}
+              value={this.state.tester}
+              onChange={this.testerCheck}
               style={{marginTop: -230, marginLeft: -75}}
             />
             <Text style={{marginTop: -30, marginLeft: -35, fontSize: 20}}>
@@ -244,10 +246,21 @@ class Registration extends Component {
               onPress={() => {
                 alert(
                   'UserName :' +
-                    this.state.Uname +
+                    this.state.UserName +
                     '\n' +
                     'Password:' +
-                    this.state.Password,
+                    this.state.Password +
+                    '\n' +
+                    'MobileNo:' +
+                    this.state.MobileNo +
+                    '\n' +
+                    'Sex:'+
+                      this.state.Sex +
+                      '\n' +
+                      'Hobby:'+
+                      this.state.hobby,
+
+
                 );
               }}
               title="Register"
@@ -300,27 +313,30 @@ const styles = StyleSheet.create({
     marginBottom: 50,
   },
   text: {
-    color: Colors.blue,
+    color:'#87CEFA',
     marginLeft: 10,
-    fontSize: 25,
+    fontSize: 20,
     fontWeight: 'bold',
     marginTop: 35,
+    flex:10,
   },
 
   radioText: {
-    color: Colors.blue,
+    color:'#87CEFA',
     marginLeft: 10,
-    fontSize: 25,
+    fontSize: 20,
     fontWeight: 'bold',
     marginTop: 40,
   },
   textbox: {
     height: 40,
-    width: 250,
+    width: 200,
     marginTop: -35,
-    marginLeft: 150,
+    marginLeft: 120,
     borderColor: 'grey',
-    borderWidth: 2,
+    borderWidth: 1,
+    borderRadius:20
+
   },
   ddown: {
     height: 40,
@@ -332,9 +348,8 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: -28,
-    marginLeft: 90,
+    marginLeft: 60,
     marginRight: 250,
-    borderRadius:50,
   },
 
   button1: {

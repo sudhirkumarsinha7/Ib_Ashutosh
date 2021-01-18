@@ -6,11 +6,7 @@ class Ib1 extends Component {
   render() {
     return (
       <View>
-        <Button
-          title="TempApiCall"
-          onPress={() => {
-            this.props.navigation.navigate('TempApiCall');
-          }}></Button>
+        
         <Button
           title="Ib3"
           onPress={() => {

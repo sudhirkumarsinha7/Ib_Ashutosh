@@ -2,29 +2,35 @@ import 'react-native-gesture-handler';
 import React, {Component} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {View, Text} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import RouteFavorites from './Favorites/RouteFavorites';
+import RouteHome from './Home/RouteHome';
 
-import RouteIb from './Ib/RouteIb';
-import RouteMain from './Main/RouteMain';
-import RouteNotify from './Notification/RouteNotify'
+import RouteReactNative from './ReactNative/RouteIb';
+import RouteContactUs from './ContactUs/RouteMain';
+import RouteAuthenticate from './Authentication/RouteAuthenticate'
 
 const Tab = createBottomTabNavigator();
 
 MyTabs = () => {
   return (
+    //<View style={{padding:30}}>
        <Tab.Navigator 
+      // style={{backgroundColor:'blue',}}
        tabBarOptions={{
            labelStyle: {
            fontSize: 15,
-         },}}
+           
+         },
+         style: {
+        backgroundColor: '#00FFFF',
+      },}}
     >
-      <Tab.Screen name="Home" component={RouteFavorites} options={{fontSize:30 }}/>
-      <Tab.Screen name="Settings" component={RouteIb} />
-      <Tab.Screen name="Disply" component={RouteMain} />
-      <Tab.Screen name="Holiday" component={RouteNotify} />
+      <Tab.Screen name="Home" component={RouteHome} options={{fontSize:30 }}/>
+      <Tab.Screen name="ReactNative" component={RouteReactNative} />
+      <Tab.Screen name="ContactUs" component={RouteContactUs} />
+      <Tab.Screen name="Authentication" component={RouteAuthenticate} />
     </Tab.Navigator>
+   // </View>
   );
 }
 

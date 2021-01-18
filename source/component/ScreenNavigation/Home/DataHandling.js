@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, FlatList} from 'react-native';
 import {tankData} from '../../../utilities/defaultdata';
 
-class Favorites2 extends Component {
+class DataHandling extends Component {
     eachItem({item}) {
     return (
       <View style={{backgroundColor:'white',padding:10,borderWidth:1,}}>
@@ -30,4 +30,4 @@ class Favorites2 extends Component {
   }
 }
 
-export default Favorites2;
+export default DataHandling;
