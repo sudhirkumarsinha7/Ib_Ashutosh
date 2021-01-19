@@ -7,11 +7,11 @@ class Ib1 extends Component {
     return (
       <View>
         
-        <Button
+        {/* <Button
           title="Ib3"
           onPress={() => {
             this.props.navigation.navigate('Ib3');
-          }}></Button>
+          }}></Button> */}
         <Button
           title="Ib4"
           onPress={() => {

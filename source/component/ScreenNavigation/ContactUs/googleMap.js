@@ -3,7 +3,17 @@ import {View, Text, Dimensions, StyleSheet} from 'react-native';
 import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import {Item, Icon, Input} from 'native-base';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
+import {assets} from '../../../utilities/defaultdata';
+
 let googleKey = 'AIzaSyCU2d-6MsB4agGdgpHUnBtPmjGpsL6BL2M';
+var markers = [
+  {
+    latitude: 45.65,
+    longitude: -78.90,
+    title: 'Foo Place',
+    subtitle: '1234 Foo Drive'
+  }
+];
 const GooglePlacesInput = () => {
   return (
     <GooglePlacesAutocomplete
@@ -54,26 +64,37 @@ export class googleMap extends Component {
   //       })
   // }
   render() {
+    console.log(assets);
     return (
-      <View style={{flex: 10}}>
-        <View style={{flex: 1}}>
-          <GooglePlacesInput/>
+      <View style={styles.MainContainer}>  
+  
+      <MapView  
+        style={styles.mapStyle}  
+        showsUserLocation={false}  
+        zoomEnabled={true}  
+        zoomControlEnabled={true}  
+        initialRegion={{  
+          latitude: 17.4295865,   
+          longitude: 17.4295865,  
+          latitudeDelta: 0.0922,  
+          longitudeDelta: 0.0421,  
+        }}>  
+         
 
-          {/* <View style={{flex: 1, borderWidth: 1}}> */}
-            {/* <Input style={{...Styles.input}}  onChangeText={text => this.setState({ address: text })} value={this.state.address} /> */}
-          {/* </View> */}
-        </View>
-        <View style={{flex: 9}}>
-          <MapView
-            style={styles.map}
-            initialRegion={{
-              latitude: 17.4121531,
-              longitude: 78.1278513,
-              latitudeDelta: 0.2,
-              longitudeDelta: 0.2,
-            }}
-          />
-        </View>
+
+        {(assets.results).map((each)=>{
+          return <Marker  
+          coordinate={{ latitude: each.geoloc.coordinates[0], longitude: each.geoloc.coordinates[1] }}  
+          title={each.name}  
+          description={each.properties.values.address}  
+        />  
+        })}
+         <Marker  
+          coordinate={{ latitude: 17.4295865, longitude: 78.368776 }}  
+          title={"Ideabytes"}  
+          description={"Plot No:35, Beside Care Hospital Lane, Jayabheri Pine Valley, Gachibowli, Hyderabad, Telangana 500032"}  
+        />   
+      </MapView>  
       </View>
     );
   }
@@ -81,23 +102,21 @@ export class googleMap extends Component {
 
 export default googleMap;
 
-const styles = StyleSheet.create({
-  container: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-  },
-  map: {
-    // position: 'absolute',
-    // top: 0,
-    // left: 0,
-    // right: 0,
-    // bottom: 0,
-    height: '100%',
-    // ...StyleSheet.absoluteFillObject
-  },
-});
+const styles = StyleSheet.create({  
+  MainContainer: {  
+    position: 'absolute',  
+    top: 0,  
+    left: 0,  
+    right: 0,  
+    bottom: 0,  
+    alignItems: 'center',  
+    justifyContent: 'flex-end',  
+  },  
+  mapStyle: {  
+    position: 'absolute',  
+    top: 0,  
+    left: 0,  
+    right: 0,  
+    bottom: 0,  
+  },  
+});  

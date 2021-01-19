@@ -21,6 +21,11 @@ class Main1 extends Component {
           onPress={() => {
             this.props.navigation.navigate('Main4');
           }}></Button>
+          <Button
+          title="GoogleMap"
+          onPress={() => {
+            this.props.navigation.navigate('googleMap');
+          }}></Button>
       </View>
     );
   }

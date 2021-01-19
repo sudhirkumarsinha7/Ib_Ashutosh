@@ -25,23 +25,22 @@ class Notification1 extends Component {
             }}></Button>
         </View>
 
-        <View style={{flex: 1}}>
-          <TouchableOpacity
+        <View >
+            <TouchableOpacity
             style={{
-              borderRadius: 30,
-              width: 145,
-              backgroundColor: '#008CBA',
-              padding: 20,
-              marginLeft: 120,
-              marginTop: 50,
+              borderRadius: 10,
+              width: 120,
+              backgroundColor: 'green',
+              padding: 12,
+              alignSelf:'center',
+              marginTop:30,
             }}
             onPress={() => this.props.navigation.navigate('Registration')}>
             <View>
               <Text
                 style={{
                   textAlign: 'center',
-                  fontWeight: 'bold',
-                  marginTop: -9,
+                  color:'white',
                 }}>
                 Registration
               </Text>
@@ -49,23 +48,23 @@ class Notification1 extends Component {
           </TouchableOpacity>
         </View>
 
-        <View style={{flex: 1}}>
+        <View >
           <TouchableOpacity
             style={{
-              borderRadius: 30,
-              width: 95,
+              borderRadius: 10,
+              width: 80,
               backgroundColor: '#008CBA',
-              padding: 20,
-              marginLeft: 150,
-              marginTop: 130,
-            }}
+              padding: 10,
+              alignSelf:'center',
+              marginTop:20
+               }}
             onPress={() => this.props.navigation.navigate('LogIn')}>
             <View>
               <Text
                 style={{
                   textAlign: 'center',
-                  fontWeight: 'bold',
-                  marginTop: -9,
+                  color:'red',
+
                 }}>
                 {' '}
                 LogIn

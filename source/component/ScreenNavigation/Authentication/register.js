@@ -19,6 +19,7 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 import DropDownPicker from 'react-native-dropdown-picker';
 //import Checkbox from 'react-native-modest-checkbox';
 import Checkbox from '@react-native-community/checkbox'
+import { Row } from 'native-base';
 
 export const FormInput = ({fieldName, onChangeText, value}) => {
   return (
@@ -76,21 +77,6 @@ class Registration extends Component {
       </View>
     );
   };
-
-  // renderButton(fieldName, onChangeText, value) {
-  //   return (
-  //     <View>
-  //       <Text style={styles.text}>{fieldName}</Text>
-  //       <TextInput
-  //         style={styles.textbox}
-  //         onChangeText={onChangeText}
-  //         value={value}
-  //       />
-  //     </View>
-  //   );
-  // }
-
-
   developerChecked = (id) => {
     this.setState((prevState) => ({developer: !prevState.developer}));
   };
@@ -104,144 +90,141 @@ class Registration extends Component {
     return (
       <>
         <ScrollView>
-          <View>
-            <Text
-              style={{
-                marginLeft: 40,
-                fontSize: 23,
-                fontWeight: 'bold',
-                marginTop: 30,
-                color:'blue'
-              }}>
-              {' '}
-              Welcome to Registration Page{' '}
-            </Text>
+             <View>
+                    <Text
+                          style={{
+                            fontSize: 23,
+                            fontWeight: 'bold',
+                            color:'blue',
+                            alignSelf:'center',
+                            marginTop:30,
+                          }}>
+                          {' '}
+                          Welcome to Registration Page{' '}
+                    </Text>
+            </View>
+            <View style={{flex:3,}}>
+                        <View style={{flex:1,flexDirection:'row'}} >
+                             <View  style={{flex:0.4}}>
+                                <Text style={{fontSize:20,fontWeight:'bold',padding:20,}}>UserName:</Text>
+
+                             </View>       
+                             <View  style={{flex:0.5}}>      
+                                  <TextInput style={{borderWidth:1,borderRadius:10,width:150,marginTop:20,padding:7,}}
+                                    onChangeText={(text) => this.setState({UserName:text})}
+                                    value={this.state.UserName}
+                                  /> 
+                             </View> 
+                        </View>
+
+
+                        <View style={{flex:1,flexDirection:'row'}} >
+                             <View  style={{flex:0.4}}>
+                                <Text style={{fontSize:20,fontWeight:'bold',padding:20,}}>Password:</Text>
+
+                             </View>       
+                             <View  style={{flex:0.5}}>      
+                                  <TextInput style={{borderWidth:1,borderRadius:10,width:150,marginTop:20,padding:7,}}
+                                    onChangeText={(text) => this.setState({Password:text})}
+                                    value={this.state.UserName}
+                                  /> 
+                             </View> 
+                        </View>
+
+                        <View style={{flex:1,flexDirection:'row'}} >
+                             <View  style={{flex:0.4}}>
+                                <Text style={{fontSize:20,fontWeight:'bold',padding:20,}}>MobileNo:</Text>
+
+                             </View>       
+                             <View  style={{flex:0.5}}>      
+                                  <TextInput style={{borderWidth:1,borderRadius:10,width:150,marginTop:20,padding:7,}}
+                                    onChangeText={(text) => this.setState({MobileNo:text})}
+                                    value={this.state.UserName}
+                                  /> 
+                             </View> 
+                        </View>
+          
+
           </View>
-
-          <View>
-                       <Text style={styles.text}>UserName:</Text>
-                       <TextInput style={styles.textbox}
-                        onChangeText={(text) => this.setState({UserName:text})}
-                         value={this.state.UserName}
-                       /> 
-                  
-                     </View>
-          {/* {this.formInput('Username')}
-          {this.formInput('Password')}
-          {this.formInput('MobieleNum')} */}
-
-          {/* <FormInput
-            fieldName={'Username'}
-            onChangeText={(UserName) => {
-              this.setState({UserName});
-            }}
-            value={this.state.UserName}
-          />
-          <FormInput
-            fieldName={'Password'}
-            onChangeText={(Password) => {
-              this.setState({Password});
-            }}
-            value={this.state.Password}
-          />
-          <FormInput
-            fieldName={'MobileNo'}
-            onChangeText={(MobileNo) => {
-              this.setState({MobileNo});
-            }}
-            value={this.state.MobileNo}
-          /> */}
-          {/* {this.renderButton(
-            'Password',
-            (Password) => {
-              this.setState({Password});
-            },
-            this.state.Password,
-          )} */}
-
-          <View>
-                         <Text style={styles.text}>Password:</Text>
-                         <TextInput style={styles.textbox}
-                         onChangeText={(text) => this.setState({Password:text})}
-                         value={this.state.Password}
-                         />
-                     </View>
-
-                     <View>
-                         <Text style={styles.text}>MobileNo:</Text>
-                         <TextInput style={styles.textbox}
-                          onChangeText={(text)=>this.setState({MobileNo:text})}
-                          value={this.state.MobileNo}
-                         />
-                     </View>
 
           <View>{this.show()}</View>
+          <View style={{flex:1,flexDirection:'row'}}>
+                   <View style={{flex:0.4}}>
+                          <Text style={{fontSize:20,fontWeight:'bold',padding:20,}}>
+                            Country:
+                          </Text>
+                  </View>
 
-          <View>
-            <Text style={{fontSize: 20, marginLeft: 20, marginTop: 20}}>
-              Country:
-            </Text>
-          </View>
+                  <View style={{flex:0.6  ,}}>
+                          <DropDownPicker
+                            items={[
+                              {label: 'USA', value: 'usa'},
+                              {label: 'UK', value: 'uk'},
+                              {label: 'India', value: 'India'},
+                            ]}
+                            defaultValue={this.state.country}
+                            containerStyle={{
+                              
+                              width: 110,
+                              padding:10,
+                              alignItems:'center',
+                              //alignContent:'center',
+                            }}
+                            style={{backgroundColor: '#fafafa'}}
+                            itemStyle={{
+                              justifyContent: 'center',
+                            }}
+                            dropDownStyle={{backgroundColor: '#fafafa'}}
+                            onChangeItem={(item) =>
+                              this.setState({
+                                country: item.value,
+                              })
+                            }
+                          />
+                 </View>
+           </View>
+           <View >
+                  <View > 
+                        <Text style={{fontSize:20,fontWeight:'bold',padding:20,}}>
+                          Hobby:
+                        </Text>
+                  </View>
 
-          <View>
-            <DropDownPicker
-              items={[
-                {label: 'USA', value: 'usa'},
-                {label: 'UK', value: 'uk'},
-                {label: 'India', value: 'India'},
-              ]}
-              defaultValue={this.state.country}
-              containerStyle={{
-                height: 35,
-                width: 180,
-                marginLeft: 120,
-                marginTop: -25,
-              }}
-              style={{backgroundColor: '#fafafa'}}
-              itemStyle={{
-                justifyContent: 'flex-start',
-              }}
-              dropDownStyle={{backgroundColor: '#fafafa'}}
-              onChangeItem={(item) =>
-                this.setState({
-                  country: item.value,
-                })
-              }
-            />
-          </View>
+                  <View style={{flex:0.1, padding:18,}}>
+                        <Checkbox
+                          value={this.state.developer}
+                          onChange={this.developerChecked}
+                          style={{}}
+                        />
+                  </View>
+                  <View style={{flex:0.5,}}>
+                         <Text style={{fontSize:12,fontWeight:'normal',padding:20,color:'green'}}>
+                         {' '}
+                         Developer
+                        </Text>
+                    </View> 
 
-          <View>
-            <Text style={{fontSize: 20, marginLeft: 20, marginTop: 20}}>
-              Hobby:
-            </Text>
-          </View>
+                    <View style={{flex:0, padding:18,}}>
+                          <Checkbox
+                                  value={this.state.tester}
+                                  onChange={this.testerCheck}
+                                  
+                          />
+                    </View>
+                    <View>
+                        <Text >
+                          Tester
+                        </Text>
+                    </View>
+              
+           </View>
+         {/* <View style={styles.container1}> 
+            
 
-          <View style={styles.container1}> 
-            <View>
-            <Checkbox
-              value={this.state.developer}
-              onChange={this.developerChecked}
-              style={{marginTop: -130, marginLeft: 1}}
-            />
-            <Text style={{marginTop: -30 , marginLeft: 30, fontSize: 20}}>
-              {' '}
-              Developer
-            </Text>
-          </View>
+          
+          </View>  */}
 
-          <View style={styles.container2}>
-            <Checkbox
-              value={this.state.tester}
-              onChange={this.testerCheck}
-              style={{marginTop: -230, marginLeft: -75}}
-            />
-            <Text style={{marginTop: -30, marginLeft: -35, fontSize: 20}}>
-              Tester
-            </Text>
-          </View>
-          </View> 
-
-          <View style={styles.button1}>
+          {/* <View style={styles.button1}>
             <Button
               onPress={() => {
                 alert(
@@ -275,7 +258,7 @@ class Registration extends Component {
               }}
               title="LogIn"
             />
-          </View> 
+          </View>  */}
         </ScrollView>
       </>
     );

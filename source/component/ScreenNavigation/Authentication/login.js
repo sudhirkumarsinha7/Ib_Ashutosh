@@ -36,73 +36,81 @@ class LogIn extends Component {
       <>
         <StatusBar barStyle="dark-content" />
           <ScrollView>
-             <View style={{flex:6}}>
-                    <View style={{backgroundColor: '#48D1CC',flex:1,}}>
+             <View style={{flex:4,}}>
+                    <View style={{backgroundColor: '#48D1CC',flex:1}}>
                           <Text
                                 style={{
                                 fontSize: 25,
                                 color: '#FFEBCD',
                                 textAlign:'center',
+                                padding:4,
                                 }}>
                                Welcome to Login Page
-                          </Text>
-                    </View>
-
-                    <View style={{flex:1}}></View>
+                          </Text> 
+                    </View> 
                     <View style={{flex:1,flexDirection:'row'}}>
-                        <View style={{flex:0.4,padding:20,}}>   
-                            <Text style={{fontSize:20,fontWeight:'bold'}}> Uname:</Text>
-                        </View> 
-                        <View style={{flax:0.6,padding:20,flaxDirection:'row',}}>   
+                         <View style={{flex:0.5}}>   
+                                <Text style={{fontSize:17,fontWeight:'bold',color:'blue',padding:20,}}> Uname:</Text>
+                         </View> 
+                         <View style={{flax:0.5,}}>   
                               <TextInput
-                                    style={{borderWidth:1,borderRadius:30,width:150,marginTop:15}}
+                                    style={{borderWidth:1,borderRadius:10,width:150,marginTop:20,padding:7,}}
                                     onChangeText={(text) => this.setState({Uname: text})}
                                     value={this.state.Uname}
-                              />
+                                />
                         </View> 
+                    </View>
+                    <View style={{flex:1,flexDirection:'row'}}> 
+                         <View style={{flex:0.53,}}>
+                             <Text style={{fontWeight:'bold',color:'blue',padding:20,fontSize:17,}}> Password:</Text>
+                            </View>
+                            <View style={{flex:0}}>
+                                  <TextInput
+                                         style={{borderWidth:1,borderRadius:10,width:150,padding:7,marginTop:22,}}
+                                         onChangeText={(text) => this.setState({Password: text})}
+                                         value={this.state.Password}
+                                  />
+                          </View>
                      </View>
-              {/* <Text style={styles.password}> Password:</Text>
-              <TextInput
-                style={styles.passwordField}
-                onChangeText={(text) => this.setState({Password: text})}
-                value={this.state.Password}
-              /> */}
-            
-            <View>
-              <TouchableOpacity
-                style={{
-                  borderRadius: 30,
-                  backgroundColor: 'green',
-                  width: 120,
-                  padding: 20,
-                  marginLeft: 30,
-                  marginTop: 90,
-                  height: 40,
-                }}
-                onPress={() =>
-                  alert(
-                    'UserName :' +
-                      this.state.Uname +
-                      '\n' +
-                      'Password:' +
-                      this.state.Password,
-                  )
-                }>
-                <View>
-                  <Text
-                    style={{
-                      textAlign: 'center',
-                      fontWeight: 'bold',
-                      marginTop: -10,
-                    }}>
-                    {' '}
-                    LogIn
-                  </Text>
-                </View>
-              </TouchableOpacity>
+                     </View>
+                    <View style={{flex:0,}}>
+                              <TouchableOpacity
+                                        style={{
+                                              borderRadius: 30,
+                                              backgroundColor: 'green',
+                                              width: 100,
+                                              padding: 20,
+                                              alignSelf:'center',
+                                              marginTop:30,
+                                              
+                                              
+                                        }}
+                                          onPress={() =>
+                                          alert(
+                                            'UserName :' +
+                                              this.state.Uname +
+                                              '\n' +
+                                              'Password:' +
+                                              this.state.Password,
+                                           )
+                                }>
+                                <View>
+                                  <Text
+                                    style={{
+                                      alignSelf:'center',
+                                      fontWeight: 'bold',
+                                      color:'white',
+
+
+                                    }}>
+                                    {' '}
+                                    LogIn
+                                  </Text>
+                                </View>
+                              </TouchableOpacity>
             </View>
 
-            <View style={styles.button1}>
+            <View style={{flex:1,flexDirection:'column-reverse',marginTop:30}}>
               <Button
                 onPress={() => {
                   this.setState({Uname: '', Password: ''});
@@ -110,7 +118,6 @@ class LogIn extends Component {
                 }}
                 title="cancel"
               />
-            </View>
             </View>
           </ScrollView>
       </>
