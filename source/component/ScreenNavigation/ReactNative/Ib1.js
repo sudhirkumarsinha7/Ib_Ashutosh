@@ -13,9 +13,9 @@ class Ib1 extends Component {
             this.props.navigation.navigate('Ib3');
           }}></Button> */}
         <Button
-          title="Ib4"
+          title="JavaScript"
           onPress={() => {
-            this.props.navigation.navigate('Ib4');
+            this.props.navigation.navigate('JavaScript');
           }}></Button>
       </View>
     );
