@@ -14,7 +14,7 @@ class RouteAuthenticate extends Component {
     return (
       // <NavigationContainer>
       <StackNotify.Navigator>
-        <StackNotify.Screen name="Authentication"  component={Authentication}></StackNotify.Screen>
+        <StackNotify.Screen name="Setting"  component={Authentication}></StackNotify.Screen>
         <StackNotify.Screen name="Notification2"  component={Notification2}></StackNotify.Screen>
         <StackNotify.Screen name="Notification3"  component={Notification3}></StackNotify.Screen>
         <StackNotify.Screen name="Notification4"  component={Notification4}></StackNotify.Screen>

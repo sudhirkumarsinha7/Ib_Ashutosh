@@ -13,6 +13,7 @@ class DataHandling extends Component {
             marginTop: 10,
             borderRadius: 15,
             borderWidth:1,
+            justifyContent:'center',
           }}>
           <CustomTextView leftText={'Sensor'} rightText={item.asset_id} />
           <CustomTextView leftText={'Address'} rightText={item.address} />

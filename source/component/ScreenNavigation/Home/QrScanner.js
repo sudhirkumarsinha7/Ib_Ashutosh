@@ -12,7 +12,7 @@ import {RNCamera, FaceDetector} from 'react-native-camera';
 import Modal from 'react-native-modal';
 import {BarCodeScanner} from '../../../utilities/BarCodeScanner';
 import {ScrollView} from 'react-native-gesture-handler';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
 import {CustomTextView} from '../../../utilities/common';
 
 /*  
@@ -20,7 +20,7 @@ import {CustomTextView} from '../../../utilities/common';
      in this class i am importing Barcode scanner 
     * QrScanner.js
     * @author: Ashutosh kumar
-    * Created On: 15 january, 2021.
+    * Created On: 15 january, 2021 .
     * Mainly used for Bar code and Qr code scanning 
 
 
@@ -65,7 +65,7 @@ class QrScanner extends Component {
       this.scanner.reactivate();
     }
   }
-
+  
   troubleShootCamera() {
     // eslint-disable-next-line no-constant-condition
     if (true) {
@@ -149,33 +149,30 @@ class QrScanner extends Component {
     return (
       <ScrollView>
         <View>
-          <View
-            style={{
-              flex: 10,
-              //margin: 20,   
-                         
-            }}>
-            <View style={{flex: 0.5, }}>
-              <Text style={{fontSize: 20, fontWeight: 'bold'}}> City Name: </Text>
+          <View style={{ flex:3,}}>
+            <View style={{flex: 2, flexDirection:'row' }}>
+            <View style={{flex:0.7}}>
+              <Text style={{fontSize: 20, fontWeight: 'bold',padding:15}}> City: </Text>
             </View>
-            <View style={{flex:0,}}>
+            <View style={{flex:0.9,padding: 10,}}>
               <TextInput
                 style={{
                   borderColor: 'blue',
                   borderWidth: 1,
-                  borderRadius: 20,
-                  padding: 8,
+                  borderRadius: 15,
+              
                 }}
                 value= {this.state.city}
                 onChangeText={(Temp) => this.SetCityName(Temp)}></TextInput>
             </View>
-            <View style={{flex: 1.2}}>
+            <View style={{flex:0}}>
               <TouchableOpacity
                 style={{
                   borderRadius: 30,
                   backgroundColor: '#008CBA',
-                  marginLeft:15,
+                  alignSelf:'center',
                   padding: 12,
+                  marginTop:13,
                 }}
                 onPress={() => this.onClickCameraToScanCode()}>
                 <View>
@@ -183,6 +180,7 @@ class QrScanner extends Component {
                 </View>
               </TouchableOpacity>
             </View>
+          </View>
             <View style={{flex:3,flexDirection:'row',padding:10,}}>
                <View style={{flex:0.8}}></View>
                <View style={{flex:1.2}}>
