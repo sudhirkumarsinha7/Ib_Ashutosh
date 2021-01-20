@@ -3,12 +3,14 @@ import {View, Button, TouchableOpacity, Text} from 'react-native';
 
 //created link for all the holiday of ideabytes
 
-class Notification1 extends Component {
+class Authentication extends Component {
   render() {
     return (
       <View>
+
+          <Text style={{padding:20,alignSelf:'center',fontWeight:'bold',fontSize:20}}> This is Authentication screen for a new user and Registered User</Text>
         <View>
-          <Button
+          {/* <Button
             title="Notification2"
             onPress={() => {
               this.props.navigation.navigate('Notification2');
@@ -22,7 +24,7 @@ class Notification1 extends Component {
             title="Notification4"
             onPress={() => {
               this.props.navigation.navigate('Notification4');
-            }}></Button>
+            }}></Button> */}
         </View>
 
         <View >
@@ -77,4 +79,4 @@ class Notification1 extends Component {
   }
 }
 
-export default Notification1;
+export default Authentication;

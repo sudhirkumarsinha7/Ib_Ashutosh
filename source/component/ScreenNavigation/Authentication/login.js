@@ -7,7 +7,6 @@
  */
 import React, {Component} from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
   ScrollView,
   View,
@@ -49,10 +48,10 @@ class LogIn extends Component {
                           </Text> 
                     </View> 
                     <View style={{flex:1,flexDirection:'row'}}>
-                         <View style={{flex:0.5}}>   
+                         <View style={{flex:0.58}}>   
                                 <Text style={{fontSize:17,fontWeight:'bold',color:'blue',padding:20,}}> Uname:</Text>
                          </View> 
-                         <View style={{flax:0.5,}}>   
+                         <View style={{flax:0,}}>   
                               <TextInput
                                     style={{borderWidth:1,borderRadius:10,width:150,marginTop:20,padding:7,}}
                                     onChangeText={(text) => this.setState({Uname: text})}
@@ -61,7 +60,7 @@ class LogIn extends Component {
                         </View> 
                     </View>
                     <View style={{flex:1,flexDirection:'row'}}> 
-                         <View style={{flex:0.53,}}>
+                         <View style={{flex:0.58,}}>
                              <Text style={{fontWeight:'bold',color:'blue',padding:20,fontSize:17,}}> Password:</Text>
                             </View>
                             <View style={{flex:0}}>
@@ -110,8 +109,9 @@ class LogIn extends Component {
                               </TouchableOpacity>
             </View>
 
-            <View style={{flex:1,flexDirection:'column-reverse',marginTop:30}}>
+            <View style={{padding:30,width:'50%',alignSelf:'center'}}>
               <Button
+                
                 onPress={() => {
                   this.setState({Uname: '', Password: ''});
                   alert('successfully cleared filed');

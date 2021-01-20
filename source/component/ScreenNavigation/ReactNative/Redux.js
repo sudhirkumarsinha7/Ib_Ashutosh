@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { View , Text} from 'react-native';
 import { WebView } from 'react-native-webview';
-class JavaScript extends Component{
+class Redux extends Component{
     render(){
         return(
-             <WebView source={{ uri: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' }} />
+             <WebView source={{ uri: 'https://redux.js.org/' }} />
         );
     }
 }
 
-export default JavaScript;
+export default Redux;

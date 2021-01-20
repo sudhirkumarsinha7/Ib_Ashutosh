@@ -11,58 +11,62 @@ import {CustomTextView} from '../../../utilities/common';
 import Modal from 'react-native-modal';
 import ImagePicker from 'react-native-image-picker';
 
-
-
 class MyProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isPhotoUpload: false,
-      filePath : '',
-      
+      filePath: '',
     };
   }
 
-  photoUpload=() =>{
+  photoUpload = () => {
     // this.setState({isPhotoUpload: true})}
     this.chooseFile();
   };
   chooseFile = () => {
     var options = {
-    title: 'Select Image',
-    storageOptions: {
-    skipBackup: true,
-    path: 'images',
-    },
+      title: 'Select Image',
+      storageOptions: {
+        skipBackup: true,
+        path: 'images',
+      },
     };
-    ImagePicker.showImagePicker(options, response => {
-    console.log('Response = ', response);
-    
-    if (response.didCancel) {
-    console.log('User cancelled image picker');
-    } else if (response.error) {
-    console.log('ImagePicker Error: ', response.error);
-    } else if (response.customButton) {
-    console.log('User tapped custom button: ', response.customButton);
-    alert(response.customButton);
-    } else if (response.uri) {
-    this.setState({ filePath: response });
-    }
+    ImagePicker.showImagePicker(options, (response) => {
+      console.log('Response = ', response);
+
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      } else if (response.customButton) {
+        console.log('User tapped custom button: ', response.customButton);
+        alert(response.customButton);
+      } else if (response.uri) {
+        this.setState({filePath: response});
+      }
     });
-    };
+  };
   render() {
     return (
       <View>
         <View style={{backgroundColor: '#b3d9ff'}}>
-          
-
-          {this.state.filePath? <Image style={styles.imag} source={{uri: this.state.filePath.uri}}/>:<Image style={styles.imag}
-              source={require('../../../Images/ashu.png')} />}
+          {this.state.filePath ? (
+            <Image
+              style={styles.imag}
+              source={{uri: this.state.filePath.uri}}
+            />
+          ) : (
+            <Image
+              style={styles.imag}
+              source={require('../../../Images/ashu.png')}
+            />
+          )}
         </View>
         <View style={{backgroundColor: '#b3cce6'}}>
           <TouchableOpacity
             style={styles.button}
-            onPress={() =>this.photoUpload()} >
+            onPress={() => this.photoUpload()}>
             <Text>UpdateProfile</Text>
           </TouchableOpacity>
         </View>
@@ -72,6 +76,7 @@ class MyProfile extends Component {
             padding: 10,
             marginTop: 10,
             borderRadius: 15,
+            borderWidth:1,
           }}>
           <CustomTextView leftText={'Name'} rightText={'Ashutosh Kumar '} />
           <CustomTextView
@@ -84,11 +89,11 @@ class MyProfile extends Component {
             leftText={'Email'}
             rightText={'ashutosh.choudhary@ideabytes.com '}
           />
-          <CustomTextView leftext={'Mobile'} rightText={'9570684028'} />
+         {/* <CustomTextView leftext={'Mobile'} rightText={'9570684028'} /> */}
         </View>
         <Modal isVisible={this.state.isPhotoUpload}>
           <View style={{flex: 1, backgroundColor: 'white', maxHeight: 200}}>
-          <Text style={{marginLeft:140,marginTop:10,}}>Pop Up</Text>
+            <Text style={{marginLeft: 140, marginTop: 10}}>Pop Up</Text>
             <TouchableOpacity
               style={styles.button1}
               onPress={() =>
@@ -124,14 +129,8 @@ const styles = StyleSheet.create({
   },
   button1: {
     alignItems: 'center',
-    // backgroundColor: "#ccfff5",
-    // padding: 10,
+
     marginTop: 30,
-    // marginLeft:120,
-    // marginBottom:30,
-    // height:40,
-    // width:90,
-    // borderRadius:40,
   },
   button2: {
     alignItems: 'center',
@@ -144,12 +143,12 @@ const styles = StyleSheet.create({
     width: 90,
     borderRadius: 40,
   },
-  imag:{
+  imag: {
     width: 180,
     borderRadius: 110,
     height: 200,
-    marginLeft: 100,
-    marginTop: 30,
+    marginTop: 20,
+    alignSelf: 'center',
   },
 });
 export default MyProfile;
