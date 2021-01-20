@@ -16,19 +16,21 @@ MyTabs = () => {
     //<View style={{padding:30}}>
        <Tab.Navigator 
       // style={{backgroundColor:'blue',}}
-       tabBarOptions={{
+          tabBarOptions={{
+           activeTintColor: 'white',
+           inactiveTintColor: 'gray',
+          inactiveBackgroundColor : 'white',
+          activeBackgroundColor : '#336699',
            labelStyle: {
            fontSize: 15,
-           
-         },
-         style: {
-        backgroundColor: '#00FFFF',
-      },}}
+            marginBottom:15,
+            },
+         }}
     >
       <Tab.Screen name="Home" component={RouteHome} options={{fontSize:30 }}/>
       <Tab.Screen name="Course" component={RouteReactNative} />
-      <Tab.Screen name="ContactUs" component={RouteContactUs} />
-      <Tab.Screen name="Authentication" component={RouteAuthenticate} />
+      <Tab.Screen name="Map" component={RouteContactUs} />
+      <Tab.Screen name="Setting" component={RouteAuthenticate} />
     </Tab.Navigator>
    // </View>
   );

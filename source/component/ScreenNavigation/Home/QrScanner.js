@@ -6,12 +6,14 @@ import {
   Button,
   TextInput,
   Alert,
+  FlatList,
 } from 'react-native';
 import {RNCamera, FaceDetector} from 'react-native-camera';
 import Modal from 'react-native-modal';
 import {BarCodeScanner} from '../../../utilities/BarCodeScanner';
 import {ScrollView} from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {CustomTextView} from '../../../utilities/common';
 
 /*  
      This is parent class for Bar code scanner
@@ -44,32 +46,7 @@ class QrScanner extends Component {
       city: '',
     };
   }
-  componentDidMount() {
-    this.getCity();
-  }
-  getCity = async () => {
-    let listData = await AsyncStorage.getItem(global.globalCityList);
-    let tempData = JSON.parse(listData);
-    console.log('QrScanner listData- ', listData);
-    console.log('tempData - ', tempData);
-
-    //  this.setState({list: tempData})
-  };
-  getTempList = async () => {
-    let listData = await AsyncStorage.getItem(global.globalCityList);
-    let tempData = JSON.parse(listData);
-    return (
-      <View>
-        <Text>{JSON.stringify(tempData)}</Text>
-      </View>
-    );
-  };
-
-  //   componentDidMount() {
-  //     AsyncStorageStatic.getItem('temp').then(value => {
-  //       this.setState({ getValue: JSON.parse(value) }); //read like a stringified JSON
-  //     });
-  //  }
+  
   updateState(key, value) {
     this.setState({[key]: value});
   }
@@ -79,7 +56,7 @@ class QrScanner extends Component {
   onSuccessScan(scannedData) {
     if (scannedData && scannedData.data) {
       this.setState({
-        qrcode: scannedData.data,
+        city: scannedData.data,
         shouldDisplayCamera: false,
       });
     } else if (scannedData && scannedData.data === '') {
@@ -116,12 +93,11 @@ class QrScanner extends Component {
     this.setState({isTextVisibility: !this.state.isTextVisibility});
   };
 
-  getSetCityName(city) {
-    this.setState({cityName: city});
-    //this.getCurrentTemp(city);
+  SetCityName(city) {
+    this.setState({city: city});
   }
-  getCurrentTemp = (city) => {
-    let {isLoading, list} = this.state;
+  getCurrentTemp = () => {
+    let {isLoading, list,city} = this.state;
     this.setState({isLoading: true});
     let tempList = list;
     console.log('city', city);
@@ -144,55 +120,45 @@ class QrScanner extends Component {
 
         tempList = tempList.push(data);
         console.log('responseData tempList after', tempList);
-
-        AsyncStorage.setItem(global.globalCityList, JSON.stringify(tempList));
-        // this.setState({data: responseData});
+        
       })
       .catch((error) => {
         this.setState({isLoading: false});
         console.log(error);
       });
   };
+  eachItem({item}) {
+    return (
+      <View
+          style={{
+            backgroundColor: 'white',
+            padding: 10,
+            marginTop: 10,
+            borderRadius: 15,
+            borderWidth:1,
+          }}>
+          <CustomTextView leftText={'City '} rightText={item.cityName} />
+          <CustomTextView leftText={'Temp'} rightText={Math.round(item.Temp - 273) + ' °F'} />
+
+        </View>
+    );
+  }
   render() {
     const {isLoading} = this.state;
     var {shouldDisplayCamera, qrcode} = this.state;
     return (
-      <ScrollView style={{backgroundColor: 'white'}}>
-        <View style={{backgroundColor: 'white'}}>
-          <View style={{backgroundColor: 'white'}}>
-            <Text
-              style={{
-                padding: 10,
-                fontWeight: 'bold',
-                fontSize: 15,
-                textAlign: 'justify',
-                color: '#333333',
-              }}>
-              The worldwide momentum for adoption of paperless menus and other
-              forms of public communications (such as museum guides) has led to
-              a wider adoption of QR codes in public spaces. New services emerge
-              to store files as QR codes as the demand grows.During the month of
-              June 2011, 14 million American mobile users scanned a QR code or a
-              barcode. Some 58% of those users scanned a QR or barcode from
-              their homes, while 39% scanned from retail stores; 53% of the 14
-              million users were men between the ages of 18 and 34.QR code usage
-              decreased to 9.76 million in 2018 but is expected to grow to a
-              total of 11 million households by the end of 2020.
-            </Text>
-          </View>
-
+      <ScrollView>
+        <View>
           <View
             style={{
-              padding: 10,
-              margin: 20,
-              flex: 3,
-              backgroundColor: 'white',
-              flexDirection: 'row',
+              flex: 10,
+              //margin: 20,   
+                         
             }}>
-            <View style={{flex: 0.6}}>
-              <Text style={{fontSize: 20, fontWeight: 'bold'}}> Temp: </Text>
+            <View style={{flex: 0.5, }}>
+              <Text style={{fontSize: 20, fontWeight: 'bold'}}> City Name: </Text>
             </View>
-            <View style={{flex: 1.2}}>
+            <View style={{flex:0,}}>
               <TextInput
                 style={{
                   borderColor: 'blue',
@@ -200,7 +166,8 @@ class QrScanner extends Component {
                   borderRadius: 20,
                   padding: 8,
                 }}
-                onChangeText={(Temp) => this.getSetCityName(Temp)}></TextInput>
+                value= {this.state.city}
+                onChangeText={(Temp) => this.SetCityName(Temp)}></TextInput>
             </View>
             <View style={{flex: 1.2}}>
               <TouchableOpacity
@@ -216,6 +183,29 @@ class QrScanner extends Component {
                 </View>
               </TouchableOpacity>
             </View>
+            <View style={{flex:3,flexDirection:'row',padding:10,}}>
+               <View style={{flex:0.8}}></View>
+               <View style={{flex:1.2}}>
+                <TouchableOpacity
+                    style={{
+                       backgroundColor: '#006400',
+                       borderRadius: 30,
+                       padding: 10,
+                     }}
+                    onPress={() => this.getCurrentTemp()}>
+                    <View>
+                         <Text style={{fontWeight: 'bold', fontSize: 15,textAlign:'center'}}>
+                         GetTemp
+                         </Text>
+                     </View>
+                 </TouchableOpacity>
+             </View>
+             <View style={{flex:1}}></View>
+          </View>
+            <FlatList
+          data={this.state.list}
+          renderItem={(item) => this.eachItem(item)}
+        />
           </View>
 
           {shouldDisplayCamera && (
@@ -239,26 +229,7 @@ class QrScanner extends Component {
             </Modal>
           )}
           {qrcode && <Text>{'QRcode   ' + this.state.qrcode}</Text>}
-
-          <View style={{flex:3,flexDirection:'row',padding:10,}}>
-               <View style={{flex:0.8}}></View>
-               <View style={{flex:1.2}}>
-                <TouchableOpacity
-                    style={{
-                       backgroundColor: '#006400',
-                       borderRadius: 30,
-                       padding: 10,
-                     }}
-                    onPress={() => this.getCurrentTemp(this.state.cityName)}>
-                    <View>
-                         <Text style={{fontWeight: 'bold', fontSize: 15,textAlign:'center'}}>
-                         GetTemp
-                         </Text>
-                     </View>
-                 </TouchableOpacity>
-             </View>
-             <View style={{flex:1}}></View>
-          </View>
+          
           <View>
             {/* Math.round(cityTemp.main.temp - 273.15) + '°F' */}
 
@@ -266,9 +237,9 @@ class QrScanner extends Component {
             {/* <Text>{obj}</Text> */}
           </View>
           {/* {this.getTempList()} */}
-          <View>
+          {/* <View>
             <Text>{JSON.stringify(this.state.list)}</Text>
-          </View>
+          </View> */}
         </View>
       </ScrollView>
     );
