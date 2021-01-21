@@ -5,9 +5,9 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import RouteHome from './Home/RouteHome';
 
-import RouteReactNative from './ReactNative/RouteCourse';
-import RouteContactUs from './ContactUs/RouteMain';
-import RouteAuthenticate from './Authentication/RouteAuthenticate'
+import RouteReactNative from './Course/RouteCourse';
+import RouteContactUs from './Map/RouteMain';
+import RouteAuthenticate from './Setting/RouteAuthenticate'
 
 const Tab = createBottomTabNavigator();
 

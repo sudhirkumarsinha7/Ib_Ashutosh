@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 // import Registration from './source/component/register';
-import LogIn from './source/component/ScreenNavigation/Authentication/login';
-import Registration from './source/component/ScreenNavigation/Authentication/register'
+import LogIn from './source/component/ScreenNavigation/Setting/login';
+import Registration from './source/component/ScreenNavigation/Setting/register'
 import Route from './source/component/Screen/Root';
 // import FavoriteRoute from './source/component/ScreenNavigation/Home/RouteFavorites';
 //import IbRoute from './source/component/ScreenNavigation/Ib/RouteIb';

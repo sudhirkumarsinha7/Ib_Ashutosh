@@ -11,7 +11,6 @@ const StackIb = createStackNavigator();
 class RouteCourse extends Component {
   render() {
     return (
-      // <NavigationContainer>
       <StackIb.Navigator>
         <StackIb.Screen name="Course"  component={Course}></StackIb.Screen>
         <StackIb.Screen name="JavaScript"  component={JavaScript}></StackIb.Screen>
@@ -20,7 +19,6 @@ class RouteCourse extends Component {
          <StackIb.Screen name="ReactNavigation"  component={ReactNavigation}></StackIb.Screen>
        
       </StackIb.Navigator>
-      // </NavigationContainer>
     );
   }
 }

@@ -36,10 +36,10 @@ export class googleMap extends Component {
       address: 'Hyderabad',
       region: {
         // hyderabad
-        latitude: 17.4121531,
-        longitude: 78.1278396,
-        latitudeDelta: 0.035,
-        longitudeDelta: 0.035,
+        latitude: 17.4295865,
+        longitude: 78.368776,
+        latitudeDelta: 0.2,
+        longitudeDelta: 0.2,
       },
     };
   }
@@ -75,9 +75,9 @@ export class googleMap extends Component {
         zoomControlEnabled={true}  
         initialRegion={{  
           latitude: 17.4295865,   
-          longitude: 17.4295865,  
-          latitudeDelta: 0.0922,  
-          longitudeDelta: 0.0421,  
+          longitude: 78.368776,  
+          latitudeDelta: 0.2,  
+          longitudeDelta: 0.2,  
         }}>  
          
 
