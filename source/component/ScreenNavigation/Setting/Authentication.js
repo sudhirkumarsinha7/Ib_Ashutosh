@@ -64,6 +64,30 @@ class Authentication extends Component {
             </View>
           </TouchableOpacity>
         </View>
+
+        <View>
+          <TouchableOpacity
+            style={{
+              borderRadius: 10,
+              width: 120,
+              backgroundColor: 'green',
+              padding: 12,
+              alignSelf: 'center',
+              marginTop: 30,
+            }}
+            onPress={() => this.props.navigation.navigate('Record')}>
+            <View>
+              <Text
+                style={{
+                  textAlign: 'center',
+                  color: 'white',
+                }}>
+                Record
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+
       </View>
     );
   }

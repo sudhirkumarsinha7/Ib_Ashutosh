@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View , Text} from 'react-native';
-class Notification2 extends Component{
+class Record extends Component{
     render(){
         return(
             <View>
@@ -12,4 +12,4 @@ class Notification2 extends Component{
     }
 }
 
-export default Notification2;
+export default Record;
