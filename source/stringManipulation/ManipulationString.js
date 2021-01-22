@@ -32,6 +32,16 @@ class ManipulationString extends Component {
     for (i = 0, j = 0; i < str1.length && j < str2.length; i++, j++) {
       str += str1[i] + '_' + str2[j] + '_';
     }
+    while(i<str1.length)
+    {
+      str=str+str1[i++]+'_';
+    }
+
+    while(j<str2.length)
+    {
+      str=str+str2[j++]+'_';
+    }
+    str = str.slice(0, -1); 
     alert(str);
   };
 
